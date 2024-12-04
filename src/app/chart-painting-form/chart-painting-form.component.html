@@ -1,0 +1,19 @@
+<div class="form-container">
+  <h3>Настройка графика</h3>
+  <form [formGroup]="form">
+    <label for="color">Цвет графика:</label>
+    <input type="color" id="color" formControlName="graphColor" />
+
+    <label for="x-axis">Ось X:</label>
+    <select id="x-axis" formControlName="xAxis">
+      <option *ngFor="let key of variableKeys" [value]="key">{{ key }}</option>
+    </select>
+
+    <label for="y-axis">Ось Y:</label>
+    <select id="y-axis" formControlName="yAxis">
+      <option *ngFor="let key of variableKeys" [value]="key">{{ key }}</option>
+    </select>
+  </form>
+
+  <div echarts [options]="chartOptions" class="chart"></div>
+</div>
